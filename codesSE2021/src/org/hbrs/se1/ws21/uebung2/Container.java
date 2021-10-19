@@ -8,7 +8,7 @@ public class Container {
     public void addMember(Member m) throws ContainerException{
             for (Member x : cont) {
                 if (Objects.equals(x.getID(), m.getID())) {
-                    throw new ContainerException();
+                    throw new ContainerException(m.getID());
                 }
             }
             cont.add(m);
