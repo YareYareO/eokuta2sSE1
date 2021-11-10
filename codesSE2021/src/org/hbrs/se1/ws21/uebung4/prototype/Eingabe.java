@@ -66,7 +66,7 @@ public class Eingabe {
         } // Ende der Schleife
     }
     private void erstelle(String[] strings){
-            if(strings.length >= 6) {
+            if(strings.length >= 6 && isNumeric(strings[1])) {
                 Employee emp = new Employee();
 
                 if (!Utility.hasNumbers(strings[2])) {
@@ -124,7 +124,7 @@ public class Eingabe {
                 } catch (Exception e) {
                     System.out.println("Id ist keine unterstützte Nummer");
                 }
-            } else{ System.out.println("Die Eingabe war zu kurz, bitte auf den Format achten");}
+            } else{ System.out.println("Die Eingabe war zu kurz, oder der erste Wert ist keine Zahl. bitte auf den Format achten");}
 
     }
 
@@ -141,16 +141,11 @@ public class Eingabe {
      * Diese Methode realisiert die Ausgabe. Sie funktioniert also benutze ich sie :-)
      */
     public void startAusgabe() {
-        try {
-            Collections.sort(con.getCurrentList());
-            for (Employee employee : con.getCurrentList()) {
-                System.out.println(employee.toString());
-            }
-            /*List<String> listeMitNamen = con.getCurrentList().stream()
-                    .filter(employee -> employee.getAbteilung().equals("Marketing"))
-                    .filter(employee -> employee.getPid() > 100)
-                    .map(employee -> employee.getName())
-                    .collect(Collectors.toList()); // reduce*/
-        } catch(NullPointerException n){System.out.println("Liste konnte nicht ausgegeben werden. Ist die Liste etwa leer?");}
+            if(con.getCurrentList().size() != 0) {
+                Collections.sort(con.getCurrentList());
+                for (Employee employee : con.getCurrentList()) {
+                    System.out.println(employee.toString());
+                }
+            }else{System.out.println("Liste konnte nicht ausgegeben werden. Ist die Liste etwa leer?");}
     }
 }

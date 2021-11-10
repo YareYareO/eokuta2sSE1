@@ -44,7 +44,7 @@ public class PersistenceStrategyStream<Employee> implements PersistenceStrategy<
         try {
             objOut.close();
             objIn.close();
-            objOut.flush();
+            objOut = null;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -80,8 +80,8 @@ public class PersistenceStrategyStream<Employee> implements PersistenceStrategy<
             if(objOut == null){
                 openConnection();
             }
-            //FileInputStream fileIn = new FileInputStream(location);
-            //objIn = new ObjectInputStream(fileIn);
+
+            //irgendwie checken ob der stream offen ist
             Object obj;
             try {
                 obj = objIn.readObject();

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Container {
-    ArrayList<Member> cont = new ArrayList<Member>();
+    ArrayList<Member> cont = new ArrayList<>();
 
     public void addMember(Member m) throws ContainerException{
             for (Member x : cont) {

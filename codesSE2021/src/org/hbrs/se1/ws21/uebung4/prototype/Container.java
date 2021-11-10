@@ -61,7 +61,10 @@ public class Container {
 	}
 
 	public List<Employee> getCurrentList() {
-		return this.liste;
+		if(this.liste != null) {
+			return this.liste;
+		}
+		else{return liste = new ArrayList<>();}
 	}
 
 	private Employee getEmployee(int id) {

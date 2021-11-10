@@ -1,7 +1,7 @@
 package org.hbrs.se1.ws21.uebung1.control;
 
 public class GermanTranslator implements Translator {
-
+//balblablalbalbalbalblablalbalbalbalbalb
 	public String date = "Okt/2021"; // Default-Wert
 
 	/**
